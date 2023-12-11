@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sansspan&family=Hedvig+Letters+Serif&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Hedvig Letters Serif', serif;
+}
+
+p, a, label, input, button, li {
+    font-family: 'Hedvig Letters Sans', sans-serif;
+}
+
+/** Header **/
+
+h1 {
+    margin: 10px;
+}
+
+/* Nav */
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    background-image: linear-gradient(to right, rgb(19, 19, 119), rgb(8, 105, 40));
+    height: fit-content;
+}
+
+nav ul li {
+    padding: 5px;
+    height:auto;
+    min-height: 100%;
+    overflow:inherit;
+    clear: both;
+    position: relative;
+    color: white;
+}
+
+nav ul li a, #expand {
+    padding: 5px;
+    overflow: visible;
+    text-decoration: none;
+}
+
+nav ul li a {
+    color: white;
+}
+
+nav ul li a:hover {
+    color: rgb(116, 255, 248);
+}
+
+nav ul li a:active {
+    color: rgb(0, 212, 219);
+}
+
+.expand-arrow, #expand-up, #expand-down {
+    padding: 0 5px;
+    margin-top: 3px;
+    /* float: right; */
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    display: none;
+}
+
+#toggle-expand {
+    display: none;
+}
+
+#toggle-expand span {
+    padding: 5px;
+}
+
+.current-link {
+    background-color:rgb(15, 113, 110);
+}
+
+nav ul li:hover {
+    background-color: rgb(16, 89, 117);
+    color: rgb(116, 255, 248);
+    cursor: pointer;
+}
+
+/* Main */
+
+main {
+    width: 85%;
+    background-color: rgb(239, 242, 245);
+    margin: 15px auto;
+    border-radius: 5px;
+    border: 3px solid black;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.main-section {
+    padding: 8px;
+    border-radius: 5px;
+    border: 3px solid black;
+    width: fit-content;
+}
+
+@media screen and (max-width: 650px) {
+    #toggle-expand {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    #expand-down {
+        display: inline-block;
+    }
+
+    nav ul li {
+        padding: 0 0 0 5px;
+    }
+
+    /* nav ul li:hover {
+        background-color:rgb(15, 113, 110);
+        color: rgb(116, 255, 248);
+        cursor: pointer;
+    } */
+
+    nav ul li a {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .shown {
+        padding: 5px;
+        height:auto;
+        min-height: 100%;
+        overflow:inherit;
+        clear: both;
+
+        padding: 5px;
+        max-height: 26px;
+        transition: max-height 0.2s ease-out;
+    }
+
+    .hidden {
+        max-height: 0px;
+        transition: max-height 0.2s ease-out;
+        padding: 0 0 0 5px;
+    }
+
+    nav ul li:first-child {
+        padding: 5px;
+    }
+
+    nav ul li + li {
+        /* display: none; */
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+    .expand-arrow:hover {
+        color: rgb(116, 255, 248);
+        cursor: pointer;
+    }
+}
